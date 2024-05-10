@@ -3,4 +3,57 @@
   {% csrf_token %} {{ form.as_p }}
   <button type="submit">Login</button>
   <a href="{% url 'signup' %}">Dont have Account Create</a>
-</fo
+</form> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-200 h-screen flex justify-center items-center">
+    <div class="bg-white p-8 rounded-lg shadow-md w-96">
+      <h1 class="text-2xl font-bold mb-4">Login</h1>
+      <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <div class="mb-4">
+          <label for="username" class="block text-gray-700 font-bold"
+            >Username</label
+          >
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="form-input mt-1 block w-full"
+            required
+          />
+        </div>
+        <div class="mb-4">
+          <label for="password" class="block text-gray-700 font-bold"
+            >Password</label
+          >
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-input mt-1 block w-full"
+            required
+          />
+        </div>
+        <!-- {% csrf_token %} {{ form.as_p }} -->
+        <button
+          type="submit"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Login
+        </button>
+        <a href="{% url 'signup' %}">Dont have Account Create</a>
+      </form>
+    </div>
+  </body>
+</html>
